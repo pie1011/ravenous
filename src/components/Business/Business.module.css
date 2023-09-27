@@ -1,0 +1,10 @@
+.Business {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    width: 100%;
+}
+
+.Business .imageContainer {
+    width: 40%;
+}
