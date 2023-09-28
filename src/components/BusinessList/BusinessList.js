@@ -1,10 +1,9 @@
 import React from "react";
-import styles from "./BusinessList.module.css";
 import Business from "../Business/Business";
 
 const BusinessList = () => {
   return (
-    <div className={styles.BusinessList}>
+    <div className="d-flex flex-row justify-content-around mb-3">
         <Business />
         <Business />
         <Business />

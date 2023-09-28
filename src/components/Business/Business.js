@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Business.module.css';
+import Card from 'react-bootstrap/Card';
 
 const business = {
     imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
@@ -15,24 +16,21 @@ const business = {
 
 const Business = () => {
     return (
-        <div className={styles.business}>
-            <div className={styles.imageContainer}>
-                <img src={business.imageSrc} alt='' />
+        <Card className={styles.BusinessCard}>
+            <div>
+                <img src={business.imageSrc} className="card-img-top" alt='' />
             </div>
-            <h2>{business.name}</h2>
-            <div className={styles.businessInformation}>
-                <div className={styles.businessAddress}>
-                    <p>{business.address}</p>
-                    <p>{business.city}</p>
-                    <p>{`${business.state} ${business.zipCode}`}</p>
+            <div className="card-body">
+                <h2 className="Card-title">{business.name}</h2>
+                <p className="card-text p-0 m-0">{business.address}</p>
+                <p className="card-text">{business.city}, {`${business.state} ${business.zipCode}`}</p>
                 </div>
-                <div className={styles.businessReviews}>
-                    <h3>{business.category}</h3>
-                    <h3 className={styles.rating}>{`${business.rating} stars`}</h3>
-                    <p>{`${business.reviewCount} reviews`}</p>
-                </div>
-            </div>
-        </div>
+                <ul className="list-group list-group-flush">
+                    <li className="list-group-item">{business.category}</li>
+                    <li className="list-group-item">{`${business.rating} stars`}</li>
+                    <li className="list-group-item">{`${business.reviewCount} reviews`}</li>
+                </ul>
+        </Card>
     );
 };
 
