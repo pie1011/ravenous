@@ -8,19 +8,19 @@ const SearchBar = () => {
   return (
     <div className={styles.SearchBar}>
     <Form>
-    <Container className="container-fluid d-flex justify-content-around">
-      <div className="p-3 flex-grow-1">
+      <Container className="container-fluid d-flex justify-content-around">
+        <div className="p-3 flex-grow-1">
           <Form.Control type="text" placeholder="Search businesses" />
-          </div>
-          <div className="p-3 flex-grow-1">
+        </div>
+        <div className="p-3 flex-grow-1">
           <Form.Control type="text" placeholder="Where?" />
-          </div>
-          <div className="p-3">
+        </div>
+        <div className="p-3">
           <Button variant="primary" type="submit">
             Submit
           </Button>
-          </div>
-          </Container>
+        </div>
+      </Container>
     </Form>
     </div>
   );
