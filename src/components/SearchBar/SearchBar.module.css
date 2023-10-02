@@ -1,0 +1,21 @@
+.SearchBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("./background_search_desktop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 25rem;
+}
+
+/* media queries */
+
+@media screen and (max-width: 768px) {
+  .SearchBar {
+    flex-direction: column;
+    background-image: url("./background_search_mobile.jpg");
+  }
+  .SearchBar form input {
+    width: 100%;
+  }
+}

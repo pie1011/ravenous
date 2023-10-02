@@ -2,9 +2,13 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 14px;
-    width: 100%;
+    width: 20%;
 }
 
 .Business .imageContainer {
     width: 40%;
+}
+
+.BusinessCard {
+    width: 18rem;
 }
