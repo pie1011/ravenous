@@ -1,66 +1,85 @@
 import React from 'react';
 import styles from './SearchBar.module.css';
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Button from 'react-bootstrap/Button';
+import ToggleButton from 'react-bootstrap/ToggleButton';
 
-const sortByOptions = {
-  "Best Match": "best_match",
-  "Highest Rated": "rating",
-  "Most Reviewed": "review_count",
-};
+const sortOptions = [
+  { name: 'Best Match', value: 'best_match' },
+  { name: 'Highest Rated', value: 'rating' },
+  { name: 'Most Reviewed', value: 'review_count' }
+];
 
 const SearchBar = () => {
-
-  const [searchTerm, setSearchTerm] = React.useState("");
-  const [searchLocation, setSearchLocation] = React.useState("");
   const [searchSort, setSearchSort] = React.useState("");
+  const [radioValue, setRadioValue] = React.useState('best_match');
 
-  const renderSortByOptions = () => {
-    return Object.keys(sortByOptions).map((sortByOption) => {
-      let sortByOptionValue = sortByOptions[sortByOption];
-      return (
-        <li 
-          className='list-group-item flex-fill text-center small' 
-          key={sortByOptionValue}
-          value={sortByOptionValue}
-          onClick={handleSortByChange}
-        >
-            {sortByOption}
-          </li>
-      );
-    });
+  const handleSort = (e) => {
+    setSearchSort(e.target.value);
+    console.log(searchSort);
+    setRadioValue(e.target.value);
   };
 
-  const handleSearch = (event) => {
-    event.preventDefault();
-  };
+  // const renderSortByOptions = () => {
 
-  const handleSortByChange = (event) => {
-    const sortValue = event.target.value;
-    sortValue === searchSort ? setSearchSort(null) : setSearchSort(sortValue);
-    console.log(sortValue);
-  };
+  //     return (
+  //       <ButtonGroup>
+  //       {sortOptions.map((radio, idx) => (
+  //         <ToggleButton
+  //           key={idx}
+  //           id={`radio-${idx}`}
+  //           type="radio"
+  //           name="radio"
+  //           variant='dark'
+  //           value={radio.value}
+  //           checked={radioValue === radio.value}
+  //           onClick={(e) => handleSort(e)}
+  //         >
+  //           {radio.name}
+  //         </ToggleButton>
+  //       ))}
+  //     </ButtonGroup>
+  //     );
+  // };
 
   return (
 
     <div className={styles.SearchBar}>
-      <Container className='container'>
-        <ul className='list-group list-group-horizontal'>{renderSortByOptions()}</ul><br />
-      </Container>
       <Form>
-        <Container className="container-fluid d-flex justify-content-around">
-          <div className="p-3 flex-grow-1">
-            <Form.Control type="text" placeholder="Search businesses" />
+        <Container className="container-fluid d-flex flex-column justify-content-around align-items-center">
+
+        <ButtonGroup>
+        {sortOptions.map((radio, idx) => (
+          <ToggleButton
+            key={idx}
+            id={`radio-${idx}`}
+            type="radio"
+            name="radio"
+            variant='dark'
+            value={radio.value}
+            checked={radioValue === radio.value}
+            onClick={(e) => handleSort(e)}
+          >
+            {radio.name}
+          </ToggleButton>
+        ))}
+      </ButtonGroup>
+
+          <Container className="container-fluid d-flex flex-lg-row flex-column">
+          <div className="p-lg-3 p-2 flex-grow-1">
+            <Form.Control className='form-control-lg' type="text" placeholder="Search businesses" />
           </div>
-          <div className="p-3 flex-grow-1">
-            <Form.Control type="text" placeholder="Where?" />
+          <div className="p-lg-3 p-2 flex-grow-1">
+            <Form.Control className='form-control-lg' type="text" placeholder="Where?" />
           </div>
-          <div className="p-3">
-            <Button variant="primary" type="submit">
+          <div className="p-lg-3 p-2 flex-grow-1">
+            <Button className='form-control-lg' variant="primary" type="submit">
               Submit
             </Button>
           </div>
+          </Container>
         </Container>
       </Form>
     </div>
