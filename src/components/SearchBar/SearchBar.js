@@ -13,14 +13,13 @@ const sortOptions = [
 ];
 
 const SearchBar = () => {
-  const [radioValue, setRadioValue] = React.useState('best_match');
+
+  const [ radioValue, setRadioValue ] = React.useState('best_match');
 
   const handleSort = (e) => {
-    console.log(radioValue);
     setRadioValue(e.target.value);
-    console.log(radioValue);
   };
-
+  console.log(radioValue);
 
   return (
 
@@ -28,11 +27,11 @@ const SearchBar = () => {
       <Form>
         <Container className="container-fluid d-flex flex-column justify-content-around align-items-center">
 
-          <ToggleButtonGroup type='radio' defaultValue={'best_match'} >
-            {sortOptions.map((radio, idx) => (
+          <ToggleButtonGroup type='radio' name='sortButtons' defaultValue={'best_match'} >
+            {sortOptions.map((radio, index) => (
               <ToggleButton
-                key={idx}
-                id={`radio-${idx}`}
+                key={index}
+                id={`radio-${index}`}
                 name="sortButtons"
                 variant='dark'
                 value={radio.value}
@@ -45,16 +44,17 @@ const SearchBar = () => {
               </ToggleButton>
             ))}
           </ToggleButtonGroup>
+          <p>{radioValue}</p>
 
           <Container className="container-fluid d-flex flex-lg-row flex-column">
             <div className="p-lg-3 p-2 flex-grow-1">
-              <Form.Control className='form-control-lg' type="text" placeholder="Search businesses" />
+              <Form.Control name='search' className='form-control-lg' type="text" placeholder="Search businesses" />
             </div>
             <div className="p-lg-3 p-2 flex-grow-1">
-              <Form.Control className='form-control-lg' type="text" placeholder="Where?" />
+              <Form.Control name='location' className='form-control-lg' type="text" placeholder="Where?" />
             </div>
             <div className="p-lg-3 p-2 flex-grow-1">
-              <Button className='form-control-lg' variant="primary" type="submit">
+              <Button name='submit' className='form-control-lg' variant="primary" type="submit">
                 Submit
               </Button>
             </div>
