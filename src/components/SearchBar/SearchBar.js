@@ -89,7 +89,7 @@ class SearchBar extends React.Component {
                   type="text"
                   value={this.searchBusiness}
                   placeholder="Search businesses"
-                  onChange={this.handleBusinessChange}
+                  onChange={this.handleTermChange}
                 />
               </div>
               <div className="p-lg-3 p-2 flex-grow-1">
@@ -108,7 +108,7 @@ class SearchBar extends React.Component {
                   variant="primary"
                   type="submit"
                   name='submit'
-                  onClick={this.handleSubmit}
+                  onClick={this.handleSearch}
                 >
                   Submit
                 </Button>

@@ -21,10 +21,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App app-bg">
         <h1>ravenous</h1>
         <SearchBar searchYelp={this.searchYelp}/>
-        <BusinessList businesses={this.state.businesses}/>
+        <BusinessList businesses={this.state.businesses} />
       </div>
     )
   }
