@@ -13,12 +13,15 @@
     "web-vitals": "^3.1.0",
     "whatwg-fetch": "^3.6.19"
   },
+  "homepage": "https://pie1011.github.io/ravenous/",
   "overrides": {
     "@svgr/webpack": "^8.0.1",
     "@adobe/css-tools": "^4.3.1"
   },
   "scripts": {
     "start": "BROWSER=none WDS_SOCKET_PORT=0 react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
